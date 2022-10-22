@@ -1,0 +1,128 @@
+<mat-stepper class="container-screen">
+  <!-- form main -->
+  <form [formGroup]="mainForm">
+    <!-- step 1 -->
+    <mat-step [stepControl]="step1Form">
+      <div class="container container-screen">
+        <!-- content left -->
+        <div class="content content-left">
+          <!-- form 1 -->
+          <form formGroupName="step1">
+            <mat-card>
+              <!-- title -->
+              <mat-card-title>
+                <h1>Creer votre compte</h1>
+                <p>completez vos informations de connexion</p>
+              </mat-card-title>
+              <!-- content -->
+              <mat-card-content>
+                <!-- email -->
+                <mat-form-field class="form-input" appearance="fill">
+                  <mat-label>E-mail</mat-label>
+                  <input matInput type="text" placeholder="Votre e-mail" formControlName="email">
+                </mat-form-field>
+                <!-- password -->
+                <mat-form-field class="form-input" appearance="fill">
+                  <mat-label>Mot de passe</mat-label>
+                  <input matInput type="password" placeholder="votre mot de passe"  [formControl]="passwordCtrl">
+                  <mat-error>{{getErrorMessage(passwordCtrl)}}</mat-error>
+                </mat-form-field>
+                <!-- confirm password -->
+                <mat-form-field class="form-input" appearance="fill">
+                  <mat-label>Confirmer le mot de passe</mat-label>
+                  <input matInput type="password" placeholder=" confirmer votre mot de passe" [formControl]="confirmPasswordCtrl">
+                  <mat-error>{{getErrorMessage(confirmPasswordCtrl)}}</mat-error>
+                </mat-form-field>
+              </mat-card-content>
+              <!-- actions -->
+              <mat-card-actions>
+                <button mat-raised-button matStepperNext color="primary" [disabled]="!step1Form.valid">Suivant</button>
+                <p>Vous aviez déja une compte ? <a routerLink="../login">Se connecter</a></p>
+              </mat-card-actions>
+            </mat-card>
+          </form>
+        </div>
+        <!-- content right -->
+        <!-- image -->
+        <div class="content content-right">
+          // image here
+        </div>
+      </div>
+    </mat-step>
+
+    <!-- step 2 -->
+    <mat-step id="second-form" [stepControl]="step2Form">
+      <div class="container container-screen">
+        <!-- content left -->
+        <!-- image -->
+        <div class="content content-left">
+          // image here
+        </div>
+        <!-- content right -->
+        <div class="content content-right">
+          <!-- form 2 -->
+          <form formGroupName="step2">
+            <mat-card>
+              <!-- title -->
+              <mat-card-title>
+                <h2>Ajoutez vos informations</h2>
+                <p>Aidez-nous à completervotre profil</p>
+              </mat-card-title>
+              <!-- content -->
+              <mat-card-content>
+                <!-- first name -->
+                <mat-form-field class="form-input" appearance="fill">
+                  <mat-label>Nom</mat-label>
+                  <input matInput type="text" placeholder="Votre nom complet" formControlName="name">
+                  <mat-error>Ce champ est requis</mat-error>
+                </mat-form-field>
+                <!-- address -->
+                <mat-form-field class="form-input" appearance="fill">
+                  <mat-label>Adresse</mat-label>
+                  <input matInput type="text" placeholder="Votre adresse de logement" formControlName="address">
+                  <mat-error>Ce champ est requis</mat-error>
+                </mat-form-field>
+                <!-- phone -->
+                <mat-form-field class="form-input" appearance="fill">
+                  <mat-label>Contact</mat-label>
+                  <input matInput type="tel" placeholder="Votre numéro téléphone" formControlName="contact">
+                </mat-form-field>
+                <!-- form group -->
+                <div class="form-group">
+                  <!-- sexe -->
+                  <mat-form-field class="form-input" appearance="fill">
+                    <mat-label>Sexe</mat-label>
+                    <mat-select formControlName="isMale">
+                      <mat-option value="true">Masculin</mat-option>
+                      <mat-option value="false">Féminin</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <!-- blood type -->
+                  <mat-form-field class="form-input" appearance="fill">
+                    <mat-label>Group sanguin</mat-label>
+                    <mat-select formControlName="bloodGroup">
+                      <mat-option value="AB+">AB+</mat-option>
+                      <mat-option value="AB-">AB-</mat-option>
+                      <mat-option value="A+">A+</mat-option>
+                      <mat-option value="A-">A-</mat-option>
+                      <mat-option value="B+">B+</mat-option>
+                      <mat-option value="B-">B-</mat-option>
+                      <mat-option value="O+">O+</mat-option>
+                      <mat-option value="O-">O-</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </mat-card-content>
+              <!-- actions -->
+              <mat-card-actions>
+                <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="!mainForm.valid">S'inscrire</button>
+                <button class="btn-return" mat-button matStepperPrevious color="primary">Retour</button>
+                <p>En continuant, vous acceptez nos politiques de confidentialités</p>
+              </mat-card-actions>
+            </mat-card>
+          </form>
+        </div>
+      </div>
+    </mat-step>
+  </form>
+</mat-stepper>

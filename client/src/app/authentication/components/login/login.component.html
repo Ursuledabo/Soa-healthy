@@ -1,0 +1,39 @@
+<div class="container container-screen">
+  <!-- content left -->
+  <div class="content content-left">
+    // image here
+  </div>
+  <!-- content right -->
+  <div class="content content-right">
+    <!-- form -->
+    <form [formGroup]="mainForm">
+      <mat-card>
+        <!-- title -->
+        <mat-card-title>
+          <h1>Bienvenue !</h1>
+          <p>Connectez-vous à votre compte</p>
+        </mat-card-title>
+        <!-- content -->
+        <mat-card-content>
+          <!-- email -->
+          <mat-form-field appearance="fill">
+            <mat-label>E-mail</mat-label>
+            <input matInput type="email" placeholder="Votre e-mail" formControlName="email">
+          </mat-form-field>
+          <!-- password -->
+          <mat-form-field appearance="fill">
+            <mat-label>Mot de passe</mat-label>
+            <input matInput type="password" placeholder="votre mot de passe" formControlName="password">
+          </mat-form-field>
+          <!-- button -->
+          <p><a href="">Mot de passe oubliée ?</a></p>
+        </mat-card-content>
+        <!-- actions -->
+        <mat-card-actions>
+          <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="!mainForm.valid">Se connecter</button>
+          <p>Vous n'avez pas de compte ? <a routerLink="../signup">S'inscrire</a></p>
+        </mat-card-actions>
+      </mat-card>
+    </form>
+  </div>
+</div>

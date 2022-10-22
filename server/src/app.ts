@@ -44,7 +44,8 @@ app.use(()=> {
 app.use(errorHandler);
 
 mongoose
-    .connect(DB)
+    //.connect(DB)
+    .connect("mongodb://localhost:27017/soa")
     .then(()=> {
     console.log("Connexion réussie");
     app.listen(PORT, ()=> {
