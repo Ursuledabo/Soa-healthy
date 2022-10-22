@@ -1,8 +1,8 @@
 import { Request } from "express";
-import { PassportStatic } from "passport";
+import { PassportStatic } from "server/src/middleware/passport";
 import Patient from "../model/Patient";
 import passportJwt from "passport-jwt";
-import {JWT_SECRET} from "../config/index.js"
+import {JWT_SECRET} from "../config"
 
 const {Strategy} = passportJwt
 
